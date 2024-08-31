@@ -1,0 +1,7 @@
+{
+  "url": "app.packetclicker.ru",                        // required
+  "name": "Packet",                      // required
+  "iconUrl": "https://www.imghippo.com/i/wwJ5c1725107137.png",               // required
+  "termsOfUseUrl": "",     // optional
+  "privacyPolicyUrl": "" // optional
+}
