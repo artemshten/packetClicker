@@ -59,7 +59,7 @@ async def main(page: ft.Page):
                                   bgcolor='#cccccc'
                                   )
 
-    await page.add_async(ft.FilledButton(url=generated_url,text='TON Connect', style=ft.ButtonStyle(bgcolor='#35a1ee')),
+    await page.add_async(ft.FilledButton(url=generated_url, icon='tonlogo.png', text='TON Connect', style=ft.ButtonStyle(bgcolor='#35a1ee')),
                          score,
                          ft.Container(content=ft.Stack(controls=[image, score_counter]), on_click=score_up, margin=ft.Margin(0,0,0,30)),
                          ft.Container(content=progress_bar, border_radius=ft.BorderRadius(10,10,10,10)),
