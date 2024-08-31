@@ -6,6 +6,9 @@ async def main(page: ft.Page):
     connector = TonConnect(manifest_url = 'https://raw.githubusercontent.com/artemshten/packetClicker/main/tonconnect-manifest.json?token=GHSAT0AAAAAACWZMVK4RB3EFKTVNNHRGPSQZWTCKLA')
     is_connected = await connector.restore_connection()
     print('is_connected:', is_connected)
+    wallets_list = TonConnect.get_wallets()
+    generated_url = await connector.connect(wallets_list[0])
+    print('generated_url:', generated_url)
     page.title = 'Packet Cliker'
     page.theme_mode = ft.ThemeMode.DARK
     page.bgcolor = '#000000'
