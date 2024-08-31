@@ -4,6 +4,8 @@ from pytonconnect import TonConnect
 
 async def main(page: ft.Page):
     connector = TonConnect(manifest_url = 'https://raw.githubusercontent.com/artemshten/packetClicker/main/tonconnect-manifest.json?token=GHSAT0AAAAAACWZMVK4RB3EFKTVNNHRGPSQZWTCKLA')
+    is_connected = await connector.restore_connection()
+    print('is_connected:', is_connected)
     page.title = 'Packet Cliker'
     page.theme_mode = ft.ThemeMode.DARK
     page.bgcolor = '#000000'
