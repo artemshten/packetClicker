@@ -7,7 +7,7 @@ async def main(page: ft.Page):
     is_connected = await connector.restore_connection()
     print('is_connected:', is_connected)
     wallets_list = TonConnect.get_wallets()
-    generated_url = await connector.connect(wallets_list[0])
+    generated_url = await connector.connect(wallets_list[1])
     print('generated_url:', generated_url)
     page.title = 'Packet Cliker'
     page.theme_mode = ft.ThemeMode.DARK
@@ -48,6 +48,12 @@ async def main(page: ft.Page):
 
     score = ft.Text(value='0', size=70, data=0)
     score_counter = ft.Text(size=50, animate_opacity=ft.Animation(duration=200, curve=ft.AnimationCurve.BOUNCE_IN))
+    if is_connected == False:
+        ton_connect = ft.FilledButton(url=generated_url,
+                                      content=ft.Text('Connect Tonkeeper', size=17, color=ft.colors.WHITE),
+                                      style=ft.ButtonStyle(bgcolor='#0098ea'))
+    else:
+        ton_connect = ft.FilledButton(content=ft.Text('Connected', size=50, color=ft.colors.WHITE), style=ft.ButtonStyle(bgcolor='#0098ea'), disabled=True)
     image = ft.Image(src='packet.png',
                      fit=ft.ImageFit.CONTAIN,
                      animate_scale=ft.Animation(duration=200, curve=ft.AnimationCurve.EASE))
@@ -59,9 +65,9 @@ async def main(page: ft.Page):
                                   bgcolor='#cccccc'
                                   )
 
-    await page.add_async(ft.FilledButton(url=generated_url, icon='add', text=('TON Connect'), style=ft.ButtonStyle(bgcolor='#0098ea')),
+    await page.add_async(ton_connect,
                          score,
-                         ft.Container(content=ft.Stack(controls=[image, score_counter]), on_click=score_up, margin=ft.Margin(0,0,0,30)),
+                         ft.Container(content=ft.Stack(controls=[image, score_counter]), on_click=score_up, margin=ft.Margin(0,0,0,20)),
                          ft.Container(content=progress_bar, border_radius=ft.BorderRadius(10,10,10,10)),
                          )
 
