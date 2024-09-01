@@ -53,8 +53,10 @@ async def main(page: ft.Page):
         ton_connect = ft.FilledButton(url=generated_url,
                                       content=ft.Text('Connect Tonkeeper', size=17, color=ft.colors.WHITE),
                                       style=ft.ButtonStyle(bgcolor='#0098ea'))
+        ton_connect = ft.Container(content=ton_connect, margin=ft.Margin(180, 0, 0, 100))
     else:
-        ton_connect = ft.FilledButton(content=ft.Text('Connected', size=50, color=ft.colors.WHITE), style=ft.ButtonStyle(bgcolor='#0098ea'), disabled=True)
+        ton_connect = ft.FilledButton(content=ft.Text('Connected', size=17, color=ft.colors.WHITE), style=ft.ButtonStyle(bgcolor='#0098ea'))
+        ton_connect = ft.Container(content=ton_connect, margin=ft.Margin(230,0,0,100))
     image = ft.Image(src='packet.png',
                      fit=ft.ImageFit.CONTAIN,
                      animate_scale=ft.Animation(duration=200, curve=ft.AnimationCurve.EASE))
