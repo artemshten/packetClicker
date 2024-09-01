@@ -3,7 +3,7 @@ from asyncio import sleep
 from pytonconnect import TonConnect
 
 async def main(page: ft.Page):
-    connector = TonConnect(manifest_url = 'https://raw.githubusercontent.com/artemshten/packetClicker/main/tonconnect-manifest.json?token=GHSAT0AAAAAACWZMVK4RB3EFKTVNNHRGPSQZWTCKLA')
+    connector = TonConnect(manifest_url = 'https://raw.githubusercontent.com/artemshten/packetClicker/main/tonconnect-manifest.json')
     is_connected = await connector.restore_connection()
     print('is_connected:', is_connected)
     wallets_list = TonConnect.get_wallets()
