@@ -8,7 +8,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 def webapp_builder():
     builder = InlineKeyboardBuilder()
-    builder.button(text='⚪️ Открыть игру', web_app=WebAppInfo(url='https://6946-109-237-12-246.ngrok-free.app'))
+    builder.button(text='⚪️ Открыть игру', web_app=WebAppInfo(url='https://160d-109-237-12-246.ngrok-free.app'))
     return builder.as_markup()
 
 
